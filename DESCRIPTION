@@ -1,0 +1,12 @@
+Package: googleautocomplete
+Type: Package
+Title: Google Auto Complete
+Version: 0.1.1
+Author: Abhinav Yedla
+Maintainer: Abhinav Yedla <abhinavyedla@gmail.com>
+Description: More about what it does (maybe more than one line)
+Depends: R (>= 3.1.0), xml2
+Install from: Repository(CRAN)
+Imports: 
+License: What license is it under?
+LazyData: TRUE
