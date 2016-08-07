@@ -2,6 +2,7 @@
 % Please edit documentation in R/googleAutoComplete.R
 \name{googleAutoComplete}
 \alias{googleAutoComplete}
+\title{Google Auto Complete search suggestion results.}
 \usage{
 googleAutoComplete(query, country = "us", lang = "en")
 }

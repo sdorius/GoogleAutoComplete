@@ -1,10 +1,12 @@
 ######################################################################################################
 #                                             Google Auto Complete                                   #
 ######################################################################################################
-#'
+#' @title
+#' Google Auto Complete search suggestion results.
+#' 
 #' @description
 #' Get country specific google auto complete results. Country codes are avaliable in googleSubDomain
-#' data set or wiki link[1]
+#' data set or wiki link[1]. 
 #'
 #' @param country
 #' The term on which search is performed
@@ -22,6 +24,8 @@
 #'
 #' @examples
 #' wikiEdits("Auto Complete", "in","en")
+#' wikiEdits("Auto Complete", "com")
+#' 'com' gives results based on the location of the user 
 #'
 #' @author
 #' Abhinav Yedla \email{abhinavyedla@gmail.com}
@@ -35,13 +39,16 @@
 #' @seealso
 #' \code{\link{}}
 #'
+#' @note 
+#' Please dont spam. Make requests only after waiting for resonable time.
+#'
 #' @import xml2
 #'
 #' @export
 
 googleAutoComplete <-
   function(query,
-           country = "us",
+           country = "com",
            lang = "en") {
     #If query is missing stop the program
     if (missing(query))
@@ -50,7 +57,7 @@ googleAutoComplete <-
     }
     
     #Load google sub domain data
-    data(googleSubDomain)
+    data(googleSubDomain,package = "googleautocomplete")
     
     #Get the domain name for a given country
     domainName <-
@@ -90,7 +97,7 @@ googleAutoComplete <-
       print(ex)
       
     }, finally = {
-      cat("Releasing any open resources")
+      cat("Please check language and country code")
       
       #if (isOpen(fh)) {
       #  close(fh);
