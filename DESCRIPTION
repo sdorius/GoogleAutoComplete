@@ -1,12 +1,19 @@
 Package: googleautocomplete
-Type: Package
 Title: Google Auto Complete
-Version: 0.1.1
-Author: Abhinav Yedla
+Version: 0.1.2
+Date: 2016-08-07
+Author: Abhinav Yedla, Dr.Shawn Dorius
 Maintainer: Abhinav Yedla <abhinavyedla@gmail.com>
-Description: More about what it does (maybe more than one line)
-Depends: R (>= 3.1.0), xml2
+Description: Get country specific google auto complete suggestions results.
+Depends:
+    R (>= 3.1.0),
+    xml2
 Install from: Repository(CRAN)
 Imports: 
-License: What license is it under?
+License: MIT + file LICENSE
 LazyData: TRUE
+URL: 
+RoxygenNote: 5.0.1
+Authors@R: c(
+    person("Abhinav", "Yedla", role=c("aut", "cre"), email="abhinavyedla@gmail.com"),
+    person("Shawn", "Dorius", role=c("aut", "cre"), email="sdorius@iastate.edu"))

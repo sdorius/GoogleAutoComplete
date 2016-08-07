@@ -1,38 +1,41 @@
 ######################################################################################################
-#                                             Wikipedia Page Edits                                   #
+#                                             Google Auto Complete                                   #
 ######################################################################################################
 #'
 #' @description
-#' Get Number of edits of a wikipedia page. List of Ip Edits, Minor Edits and total Edits are returned
+#' Get country specific google auto complete results. Country codes are avaliable in googleSubDomain
+#' data set or wiki link[1]
 #'
-#' @param page.title
-#' Title of the page to get views
+#' @param country
+#' The term on which search is performed
 #'
-#' @param language
-#' Language of wikipedia page
+#' @param lang
+#' Language of google search page
 #'
 #' @return
-#' An list with number of edits of a page per month from creation of page
+#' An list of terms which match the query
 #'
 #' @details
-#' \code{language} The codes represent the language codes defined by ISO 639-1 and ISO 639-3, and
-#' the decision of which language code to use is usually determined by the IETF language tag policy.
-#' For more details please check List_of_Wikipedias page[1]
+#' \code{country} make sure that results retrieved for \code{query} are local to mentioned country.
+#' \code{lang} parameter is for language specific search suggestions. Check the wikipedia link[1] for
+#' google domains(Country Codes).
 #'
 #' @examples
-#' wikiEdits("United_States","en")
+#' wikiEdits("Auto Complete", "in","en")
 #'
 #' @author
 #' Abhinav Yedla \email{abhinavyedla@gmail.com}
 #'
 #' @references
-#' [1] https://en.wikipedia.org/wiki/List_of_Wikipedias
+#' [1] https://en.wikipedia.org/wiki/List_of_Google_domains
 #'
 #' @keywords
-#' Wikipedia Page Edits
+#' Google Auto Complete Suggestions
 #'
 #' @seealso
 #' \code{\link{}}
+#'
+#' @import xml2
 #'
 #' @export
 
@@ -40,23 +43,27 @@ googleAutoComplete <-
   function(query,
            country = "us",
            lang = "en") {
+    #If query is missing stop the program
     if (missing(query))
     {
-      stop("Please enter and try again")
+      stop("Please enter query and try again")
     }
-    # if (is.null(subDomainList) || nrow(subDomainList) != 199) {
-    #  if (!file.exists("RequiredData\\GoogleSubDomianList.txt"))
-    #   stop("Google Sub Domian File Not Found!")
-    #else
-    # subDomainList <-
-    #  read.delim2(file = 'RequiredData\\GoogleSubDomianList.txt', sep = "\t")
-    #}
     
+    #Load google sub domain data
+    data(googleSubDomain)
     
+    #Get the domain name for a given country
+    domainName <-
+      as.character(googleSubDomain[googleSubDomain$TLD == country, 3])
     
+    #Check if country code is correct or not
+    if (identical(domainName, character(0))) {
+      stop("Please re check your country short code")
+    }
     
+    #Construct the url
     subDomain <-
-      paste0("http://clients1.", subDomainList[subDomainList$TLD == country, 3])
+      paste0("http://clients1.", domainName)
     lang <- paste0("hl=", lang)
     query <- paste0("q=", query)
     url <-
@@ -66,14 +73,31 @@ googleAutoComplete <-
              "&output=toolbar&",
              query)
     
-    
-    xmlData <- read_xml(url)
-    
-    xmlChildren <- xml_find_all(xmlData, ".//suggestion")
-    
-    result <- data.frame(xml_attr(xmlChildren, "data"))
-    
-    colnames(result) <- "Result"
-    
-    return(result)
+    tryCatch({
+      #Read the xml data from url
+      xmlData <- read_xml(url)
+      
+      xmlChildren <- xml_find_all(xmlData, ".//suggestion")
+      
+      result <- data.frame(xml_attr(xmlChildren, "data"))
+      
+      colnames(result) <- "Result"
+      
+      return(result)
+    }, error = function(ex) {
+      cat("An error was detected")
+      
+      print(ex)
+      
+    }, finally = {
+      cat("Releasing any open resources")
+      
+      #if (isOpen(fh)) {
+      #  close(fh);
+      #  rm(fh);
+      #  file.remove(filename);
+      #}
+      cat("done\n")
+      
+    })
   }
