@@ -1,21 +1,23 @@
-######################################################################################################
-#                               Google Auto Complete Sub Domain Data                                 #
-######################################################################################################
-#' Goolge Domain Data from taken from wikipedia page[1]
+##############################################################################
+#                           Google Auto Complete Sub Domain Data             #
+##############################################################################
+#' Goolge Search Domains
 #'
 #' @docType data
 #'
 #' @usage data(googleSubDomain)
 #'
-#' @format An data frame with 3 columns Region, TLD and Domain.
+#' @format An data frame with 3 columns Region, Code and Domain.
 #'
 #' @keywords datasets
 #'
 #' @references 
+#' https://en.wikipedia.org/wiki/List_of_Google_domains
 #'
-#' @source \href{https://en.wikipedia.org/wiki/List_of_Google_domains}{Wikipedia Web Page}
+#' @source \href{https://en.wikipedia.org/wiki/List_of_Google_domains}
+#' {Wikipedia Web Page}
 #'
 #' @examples
 #' data(googleSubDomain)
-#' regions <- attr(googleSubDomain, "Region")
+#' regions <- googleSubDomain$Region
 "googleSubDomain"

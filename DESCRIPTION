@@ -1,7 +1,7 @@
 Package: googleautocomplete
-Title: Google Auto Complete
 Version: 0.1.2
 Date: 2016-08-07
+Title: Google Auto Complete
 Author: Abhinav Yedla, Dr.Shawn Dorius
 Maintainer: Abhinav Yedla <abhinavyedla@gmail.com>
 Description: Get country specific google auto complete suggestions results.
@@ -17,3 +17,6 @@ RoxygenNote: 5.0.1
 Authors@R: c(
     person("Abhinav", "Yedla", role=c("aut", "cre"), email="abhinavyedla@gmail.com"),
     person("Shawn", "Dorius", role=c("aut", "cre"), email="sdorius@iastate.edu"))
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

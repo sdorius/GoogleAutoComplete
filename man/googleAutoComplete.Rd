@@ -2,39 +2,64 @@
 % Please edit documentation in R/googleAutoComplete.R
 \name{googleAutoComplete}
 \alias{googleAutoComplete}
-\title{Google Auto Complete search suggestion results.}
+\title{Google Search Autocomplete}
 \usage{
-googleAutoComplete(query, country = "us", lang = "en")
+googleAutoComplete(query, country = "com", searchLang = "lang_en",
+  webInterfacewebInterfaceLang = "en")
 }
 \arguments{
-\item{country}{The term on which search is performed}
+\item{query}{The term for which autocomplete results are retrieved.}
 
-\item{lang}{Language of google search page}
+\item{country}{Get only the country specific results not global results.}
+
+\item{searchLang}{Language in which search is made.}
+
+\item{webInterfaceLang}{Language of google search page.}
 }
 \value{
-An list of terms which match the query
+An list of terms based on the query.
 }
 \description{
-Get country specific google auto complete results. Country codes are avaliable in googleSubDomain
-data set or wiki link[1]
+This function is used to get google search auto complete suggestion.
+You can get country specific google auto complete results and language
+specific results.
 }
 \details{
-\code{country} make sure that results retrieved for \code{query} are local to mentioned country.
-\code{lang} parameter is for language specific search suggestions. Check the wikipedia link[1] for
-google domains(Country Codes).
+\code{country} make sure that results retrieved for \code{query} are local
+to mentioned country. \code{webInterfaceLang} parameter is for search
+suggestions in specific language. \code{searchLang} is used to make search
+in specific language. Please refer to \code{googleSubDomain} data frame for
+country availability and country codes. \code{googleSearchLang} and
+\code{googleWebInterfaceLang} for search language and search web interface
+availability respectively.
+}
+\note{
+Please use it fair. Too many requests can get you blocked.
 }
 \examples{
-wikiEdits("Auto Complete", "in","en")
+googleAutoComplete("Where is olympics", "com","lang_en","en")
+Results:
+Where is olympics 2020
+Where is olympics 2016
+Where is olympics 2024
+Where is olympics 2016 held
+
+googleAutoComplete("total athletes", "com")
+Results:
+total athletes in 2014 Olympics
+total athletes in 2014 winter Olympics
+total athletes in the 2012 Olympics
 
 }
 \author{
 Abhinav Yedla \email{abhinavyedla@gmail.com}
 }
 \references{
-[1] https://en.wikipedia.org/wiki/List_of_Google_domains
+https://sites.google.com/site/tomihasa/google-language-codes
+https://en.wikipedia.org/wiki/List_of_Google_domains
 }
 \seealso{
-\code{\link{}}
+\code{\link{googleSearchLang},\link{googleWebInterfaceLang}}
 }
 \keyword{Auto}
 \keyword{Complete}

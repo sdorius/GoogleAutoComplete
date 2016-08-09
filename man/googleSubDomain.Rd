@@ -3,23 +3,24 @@
 \docType{data}
 \name{googleSubDomain}
 \alias{googleSubDomain}
-\title{Goolge Domain Data from taken from wikipedia page[1]}
-\format{An data frame with 3 columns Region, TLD and Domain.}
+\title{Goolge Search Domains}
+\format{An data frame with 3 columns Region, Code and Domain.}
 \source{
-\href{https://en.wikipedia.org/wiki/List_of_Google_domains}{Wikipedia Web Page}
+\href{https://en.wikipedia.org/wiki/List_of_Google_domains}
+{Wikipedia Web Page}
 }
 \usage{
 data(googleSubDomain)
 }
 \description{
-Goolge Domain Data from taken from wikipedia page[1]
+Goolge Search Domains
 }
 \examples{
 data(googleSubDomain)
-regions <- attr(googleSubDomain, "Region")
+regions <- googleSubDomain$Region
 }
 \references{
-
+https://en.wikipedia.org/wiki/List_of_Google_domains
 }
 \keyword{datasets}
 
