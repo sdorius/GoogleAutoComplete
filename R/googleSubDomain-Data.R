@@ -1,13 +1,13 @@
 ##############################################################################
 #                           Google Auto Complete Sub Domain Data             #
 ##############################################################################
-#' Goolge Search Domains
+#' Google Search Domains
 #'
 #' @docType data
 #'
 #' @usage data(googleSubDomain)
 #'
-#' @format An data frame with 3 columns Region, Code and Domain.
+#' @format A data frame with 3 columns: Region, Code and Domain.
 #'
 #' @keywords datasets
 #'
