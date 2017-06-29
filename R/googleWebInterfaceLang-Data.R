@@ -7,7 +7,7 @@
 #'
 #' @usage data(googleWebInterfaceLang)
 #'
-#' @format An data frame with 2 columns Language and Code.
+#' @format A data frame with 2 columns: Language and Code.
 #'
 #' @keywords datasets
 #'
