@@ -1,7 +1,7 @@
 ##############################################################################
 #                     Google Search Web Interface Language                   #
 ##############################################################################
-#' Goolge search web interface language.
+#' Google search web interface language.
 #'
 #' @docType data
 #'
