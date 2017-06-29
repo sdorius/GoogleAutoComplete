@@ -5,9 +5,9 @@
 #' Google Search Autocomplete
 #'
 #' @description
-#' This function is used to get google search auto complete suggestion.
-#' You can get country specific google auto complete results and language
-#' specific results.
+#' This package is used to scrape google search auto complete data.
+#' The pacakage allows for country and language-specific results.
+
 #'
 #' @param query
 #' The term for which autocomplete results are retrieved.
@@ -31,15 +31,15 @@
 #' availability respectively.
 #'
 #' @return
-#' An list of terms based on the query.
+#' A list of terms-phrases scraped from the query.
 #'
 #' @examples
-#' googleAutoComplete("Where is olympics", "com","lang_en","en")
+#' googleAutoComplete("Where are the olympics", "com","lang_en","en")
 #' Results:
-#' Where is olympics 2020
-#' Where is olympics 2016
-#' Where is olympics 2024
-#' Where is olympics 2016 held
+#' Where are the olympics 2020
+#' Where are the olympics 2016
+#' Where are the olympics 2024
+#' Where are the olympics 2016 held
 #'
 #' googleAutoComplete("total athletes", "com")
 #' Results:
@@ -47,7 +47,8 @@
 #' total athletes in 2014 winter Olympics
 #' total athletes in the 2012 Olympics
 #'
-#' @author
+#' @authors
+#' Shawn Dorius \email{sdorius@iastate.edu}
 #' Abhinav Yedla \email{abhinavyedla@gmail.com}
 #'
 #' @references
@@ -61,7 +62,9 @@
 #' \code{\link{googleSearchLang},\link{googleWebInterfaceLang}}
 #'
 #' @note
-#' Please use it fair. Too many requests can get you blocked.
+#' As with all data scrapes, please be careful to limit queries.
+#' Too many requests can get you blocked.
+
 #'
 #' @import xml2
 #'
